@@ -6,6 +6,9 @@ import { MenuItem } from 'material-ui/Menu';
 import { FormControl, FormHelperText } from 'material-ui/Form';
 import Select from 'material-ui/Select';
 import Paper from 'material-ui/Paper';
+const data = require('../skills.json');
+
+console.log(data);
 
 const styles = theme => ({
   root: {
@@ -50,9 +53,10 @@ class SimpleSelect extends React.Component {
             <MenuItem value="">
               <em>None</em>
             </MenuItem>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            <MenuItem value={data[0]}>1</MenuItem>
+            <MenuItem value={data[1]}>2</MenuItem>
+            <MenuItem value={data[2]}>3</MenuItem>
+            <MenuItem value={data}>Add aditional skill</MenuItem>
           </Select>
         </FormControl>
       </form>
