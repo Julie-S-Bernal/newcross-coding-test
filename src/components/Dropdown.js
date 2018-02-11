@@ -26,7 +26,7 @@ const styles = theme => ({
 
 class SimpleSelect extends React.Component {
   state = {
-    age: '',
+    skill: '',
     name: 'hai',
   };
 
@@ -41,14 +41,10 @@ class SimpleSelect extends React.Component {
     <Paper>
       <form className={classes.root} autoComplete="off">
         <FormControl className={classes.formControl}>
-          <InputLabel htmlFor="age-simple">Select Skill and Competency</InputLabel>
+          <InputLabel htmlFor="simple">Select Skill and Competency</InputLabel>
           <Select
-            value={this.state.age}
+            value={this.state.skill}
             onChange={this.handleChange}
-            inputProps={{
-              name: 'age',
-              id: 'age-simple',
-            }}
           >
             <MenuItem value="">
               <em>None</em>
