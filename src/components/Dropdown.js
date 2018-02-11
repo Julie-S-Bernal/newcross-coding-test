@@ -6,8 +6,7 @@ import { MenuItem } from 'material-ui/Menu';
 import { FormControl, FormHelperText } from 'material-ui/Form';
 import Select from 'material-ui/Select';
 import Paper from 'material-ui/Paper';
-const data = require('../skills.json');
-
+import data from '../skills.json';
 console.log(data);
 
 const styles = theme => ({
@@ -24,13 +23,14 @@ const styles = theme => ({
   },
 });
 
+
 class SimpleSelect extends React.Component {
   state = {
-    skill: '',
-    name: 'hai',
+    skill: ''
   };
 
   handleChange = event => {
+    console.log(event);
     this.setState({ [event.target.name]: event.target.value });
   };
 
@@ -46,13 +46,7 @@ class SimpleSelect extends React.Component {
             value={this.state.skill}
             onChange={this.handleChange}
           >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={data[0]}>1</MenuItem>
-            <MenuItem value={data[1]}>2</MenuItem>
-            <MenuItem value={data[2]}>3</MenuItem>
-            <MenuItem value={data}>Add aditional skill</MenuItem>
+            {data.skills.map( val => (<MenuItem value={val}>{val}</MenuItem>))}
           </Select>
         </FormControl>
       </form>
