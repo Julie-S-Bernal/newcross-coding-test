@@ -1,21 +1,44 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import ReactDOM from 'react-dom';
+import './style/index.css';
+import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
+// have a look at colors that I need here
+import { blue, grey, red } from 'material-ui/colors';
 import './App.css';
+import Layout from './components/Layout.js';
 
-class App extends Component {
+const accent = blue['500'];
+const second = grey['100'];
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      ...blue,
+      500: accent
+    },
+    secondary: {
+      ...grey,
+      100: second
+    },
+    error: red
+  }
+});
+
+class App extends React.Component {
   render() {
     return (
+      <MuiThemeProvider theme={theme}>
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <p>I work </p>
+      <Layout />
       </div>
+      </MuiThemeProvider>
     );
   }
 }
 
 export default App;
+
+
+
